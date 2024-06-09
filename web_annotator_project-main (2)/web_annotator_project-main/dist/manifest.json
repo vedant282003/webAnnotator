@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "Highlighter Extension",
+    "version": "1.0",
+    "description": "A Chrome extension to highlight content on a web page",
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "storage",
+      "tabs",
+      "unlimitedStorage"
+    ],
+    "action": {
+      "default_popup": "index.html"
+    },
+    "background": {
+    "service_worker": "background.js"
+  },
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "icons/delete.png",
+          "icons/wrong.png"
+        ],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["contentScript.js"]
+      }
+    ]
+  }
+  
